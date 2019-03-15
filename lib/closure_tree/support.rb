@@ -32,7 +32,7 @@ module ClosureTree
     end
 
     def hierarchy_class_for_model
-      hierarchy_class = model_class.parent.const_set(short_hierarchy_class_name, Class.new(ActiveRecord::Base))
+      hierarchy_class = model_class.module_parent.const_set(short_hierarchy_class_name, Class.new(ActiveRecord::Base))
       use_attr_accessible = use_attr_accessible?
       include_forbidden_attributes_protection = include_forbidden_attributes_protection?
       model_class_name = model_class.to_s
